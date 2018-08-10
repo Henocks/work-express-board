@@ -1,0 +1,9 @@
+{
+	"name": "work-express-board",
+	"version": "0.0.1",
+	"description": "App",
+	"dependencies": {
+		"mongoose": "^5.2.7"
+	},
+	"author": "henocks"
+}
