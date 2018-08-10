@@ -34,8 +34,6 @@ app.get('/createPage', function (req, res) {
     if(err) console.log(err);
   });
 
-  
-
   content.find(function(err, contents){
     if(err) return console.error(err);
     console.log(contents);
@@ -51,12 +49,8 @@ app.get('/readPage', function (req, res) {
   content.find(function(err, contents){
     if(err) return console.error(err);
     console.log(contents);
-    res.send(contents);
-  })
-
-  res.send(page);
-  //res.send("TITLE : " + page.title);
-
+    res.send(contents[0]);
+  });
 });
 
 app.listen(3000, function(){
