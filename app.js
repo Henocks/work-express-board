@@ -1,8 +1,11 @@
+/* express configure */
 const express = require('express');
+const app = express();
+
 const dbconn = require('./libs/dbconn');
 const content = require('./libs/schema');
 
-const app = express();
+/* mongo db connect */
 const mongoose = require('mongoose');
 dbconn.init(mongoose);
 
@@ -15,14 +18,23 @@ app.get('/', function (req, res) {
     let page = '';
     let counter = 0;
     contents.forEach(function(item){
-      page = page + '<br \> <tr> <td class="number">'+counter+'</td> <td class="title"><a href="/">'+item.title+'</a></td> <td class="writer">'+item.writer+'</td><td class="date">'+item.date+'</td><td class="cnt">'+item.count+'</td></tr>'
+      page = 
+        `${page}<br \> <tr> <td class="number">
+        ${counter} 
+        </td> <td class="title"><a href="/">
+        ${item.title}
+        </a></td> <td class="writer">
+        ${item.writer} 
+        </td><td class="date">
+        ${item.date}</td><td class="cnt">
+        ${item.count}</td></tr>`
       counter++;
     });
     res.send(page);
   });
 });
 
-app.get('/setUp', function (req, res) {
+app.get('/setup', (req, res) => {
   db.on('error', console.error.bind(console, 'connection error!'));
   db.once('open', function(){
     console.log('connection succesful');
@@ -30,7 +42,7 @@ app.get('/setUp', function (req, res) {
   res.send("conn done");
 });
 
-app.get('/createPage', function (req, res) {
+app.get('/createpage', (req, res) => {
   const page = new content(
     {
       writer: "Haryun",
@@ -44,22 +56,19 @@ app.get('/createPage', function (req, res) {
     }
   );
 
-  page.save(function(err){
+  page.save(function (err){
     if(err) console.log(err);
   });
 
-  content.find(function(err, contents){
+  content.find(function (err, contents){
     if(err) return console.error(err);
     console.log(contents);
     res.send(contents);
-  })
-
-  //res.send("TITLE : " + page.title);
+  });
 
 });
 
-app.get('/readPage', function (req, res) {
-
+app.get('/readpage', (req, res) => {
   content.find(function(err, contents){
     if(err) return console.error(err);
     console.log(contents);
@@ -69,4 +78,4 @@ app.get('/readPage', function (req, res) {
 
 app.listen(3000, function(){
 	console.log("localhost:3000 Listening!");
-})
+});
