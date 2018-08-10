@@ -6,6 +6,9 @@
 # testing
 /coverage
 
+# private libs
+/libs
+
 # production
 /build
 

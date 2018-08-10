@@ -1,6 +1,9 @@
 const express = require('express');
-const app = express();
+const dbconn = require('./libs/dbconn');
 
+const app = express();
+const mongoose = require('mongoose');
+dbconn.init(mongoose);
 
 app.get('/', function (req, res) {
   res.send("APIS RPC Broadcast server test page");
