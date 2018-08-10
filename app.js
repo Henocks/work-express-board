@@ -9,11 +9,25 @@ dbconn.init(mongoose);
 const db = mongoose.connection;
 
 app.get('/', function (req, res) {
+  content.find(function(err, contents){
+    if(err) return console.error(err);
+    console.log(contents);
+    let page = '';
+    let counter = 0;
+    contents.forEach(function(item){
+      page = page + '<br \> <tr> <td class="number">'+counter+'</td> <td class="title"><a href="/">'+item.title+'</a></td> <td class="writer">'+item.writer+'</td><td class="date">'+item.date+'</td><td class="cnt">'+item.count+'</td></tr>'
+      counter++;
+    });
+    res.send(page);
+  });
+});
+
+app.get('/setUp', function (req, res) {
   db.on('error', console.error.bind(console, 'connection error!'));
   db.once('open', function(){
     console.log('connection succesful');
   })
-  res.send("test page");
+  res.send("conn done");
 });
 
 app.get('/createPage', function (req, res) {
