@@ -5,20 +5,7 @@ const content = require('../../libs/schema');
 let counter = 0;
 
 router.get('/', function (req, res, next) {
-  res.render('create', {
-  });
-  const page = new content(
-    {
-      writer: "Haryun",
-      password: "1234",
-      title: "TestPageTitle",
-      contents: "TestPageContent",
-      comments: [{
-        name: "Haryun2",
-        memo: "HAHAHAHAHA"
-      }]
-    }
-  );
+  res.render('create', {});
 });
 
 function addBoard(title, writer, content, password){
@@ -40,7 +27,7 @@ router.post('/', function(req, res){
   const addNewContent = req.body.addContents;
   const addNewPasword = req.body.addContentPassword;
   addBoard(addNewTitle, addNewWriter, addNewContent, addNewPasword);
-  res.redirect('/boards');
+  res.redirect('/list');
 });
 
 module.exports = router;

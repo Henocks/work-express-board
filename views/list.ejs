@@ -1,5 +1,4 @@
 <html>
-
 <head>
   <style>
     table {
@@ -7,7 +6,6 @@
       text-align: left;
       line-height: 1.5;
       width: 90%;
-      margin-top: -16%;
     }
 
     table th {
@@ -40,6 +38,9 @@
 </head>
 
 <body>
+  <button onclick="location.href='/'"><div>HOME</div></a></button>
+  <button onclick="location.href='/create'"><div>CREATE DOC</div></a></button>
+  
   <table>
     <th style="width:70px">
       정렬 번호
@@ -57,7 +58,6 @@
       게시물 ID
     </th>
     <% list.forEach((el, index) => { %>
-      <br \>
       <tr>
         <td style="width:70px">
           <%= index %>
