@@ -1,0 +1,84 @@
+<html>
+
+<head>
+  <style>
+    table {
+      border-collapse: collapse;
+      text-align: left;
+      line-height: 1.5;
+      width: 90%;
+      margin-top: -16%;
+    }
+
+    table th {
+      padding: 10px;
+      font-weight: bold;
+      vertical-align: top;
+      color: #369;
+      border-bottom: 3px solid #036;
+    }
+
+    table th {
+      width: 150px;
+      padding: 10px;
+      font-weight: bold;
+      vertical-align: top;
+      border-bottom: 1px solid #ccc;
+      background: #f3f6f7;
+    }
+
+    table td {
+      width: 350px;
+      padding: 10px;
+      vertical-align: top;
+      border-bottom: 1px solid #ccc;
+    }
+  </style>
+  <title>
+    List
+  </title>
+</head>
+
+<body>
+  <table>
+    <th style="width:70px">
+      정렬 번호
+    </th>
+    <th>
+      게시물 제목
+    </th>
+    <th>
+      작성자
+    </th>
+    <th >
+      작성일
+    </th>
+    <th style="width:50px">
+      게시물 ID
+    </th>
+    <% list.forEach((el, index) => { %>
+      <br \>
+      <tr>
+        <td style="width:70px">
+          <%= index %>
+        </td>
+        <td>
+          <a href= <%= "/documents/"+el.id %> >
+          <%= el.title %>
+          </a>
+        </td>
+        <td>
+          <%= el.writer %>
+        </td>
+        <td>
+          <%= el.date %>
+        </td>
+        <td style="width:50px">
+          <%= el.count %>
+        </td>
+      </tr>
+    <% }); %>
+  </table>
+</body>
+
+</html>

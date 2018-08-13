@@ -1,0 +1,22 @@
+<html>
+  <head>
+  <title><%= title %></title>
+    <link href="css/style.css" rel="stylesheet" type="text/css" >
+  </head>
+  <body>
+      <div class="content_box">
+          <div class="content-title" style="border-bottom: solid black 1px">
+            <h1>제목 : <%= data.title%></h1>
+          </div>
+          <div class="content-info" style="border-bottom: solid black 2px; margin-bottom: 30px">
+            <h3>작성자 : <%= data.writer %> // <%= data.date%></h3>
+          </div>
+          <div class="content-text" style="margin-bottom: 300px">
+            <a><%= data.contents %></a>
+          </div>
+          <a href="/list"><div class="content-Btn" style="border:solid black 1px; text-align: center; width:30%"><br /><br />확인</div></a>
+          <a href=<%= '/delete/'+data.id %>><div class="content-Btn" style="border:solid black 1px; text-align: center; width:30%"><br /><br />삭제</div></a>
+      </div>
+  </body>
+  
+</html>
