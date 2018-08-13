@@ -20,7 +20,7 @@ function addBoard(title, writer, content, password){
   });
 }
 
-router.post('/', function(req, res){
+router.get('/post', function(req, res){
   // 글 작성하고 submit하게 되면 저장이 되는 부분
   const addNewTitle = req.body.addContentSubject;
   const addNewWriter = req.body.addContentWriter;

@@ -6,8 +6,32 @@
     <input type="text" class="inputWriter" id="addContentWriter" name="addContentWriter" placeholder="작성자">
   </form>
   <br />
-  <div id = "new " class="addBtngroup ">
-      <button onclick="submitContents('add'); "><div>SUBMIT</div></a>
-      <button onclick="location.href='/list'"><div>CANCEL</div></a>
+  <div id="new " class="addBtngroup ">
+    <button onclick="submitContents('add'); ">
+      <div>SUBMIT</div>
+      </a>
+    </button>
+    <button onclick="location.href='/list'">
+      <div>CANCEL</div>
+      </a>
+    </button>
   </div>
 </div>
+
+<script>
+  function submitContents(option) {
+    console.log("pushed");
+    var title = $('#addContentSubject').val();
+    var content = $('#addContents').val();
+    var writer = $('#addContentWriter').val();
+    var password = $('#addContentPassword').val();
+    if (option == 'add') {
+      if (title == '' || content == '' || writer == '') {
+        alert("제목과 내용, 작성자 모두 있어야합니다.");
+        return;
+      } else {
+        $('#writeAction').submit();
+      }
+    }
+  }
+</script>
