@@ -18,9 +18,10 @@ app.use(express.static('public'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
 
+app.use('/create', require('./routes/create'));
+app.use('/delete', require('./routes/delete'));
 app.use('/documents', require('./routes/document'));
 app.use('/list', require('./routes/list'));
-app.use('/create', require('./routes/create'));
 
 app.get('/', (req,res) => {
   res.render('index', {
