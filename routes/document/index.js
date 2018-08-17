@@ -12,7 +12,7 @@ router.get('/', function (req, res, next) {
 router.get('/:id', function (req, res, next) {
   content.findOne({_id : req.params.id}, (err, content) => {
     if (err) return console.error(err);
-    console.log("////////////////////////////////" + content);
+    console.log("//////" + content);
     res.render('docs', {
       title: "Document",
       data: content
